@@ -2,7 +2,64 @@
 //获取应用实例
 const app = getApp()
 
+//生成从minNum到maxNum的随机数
+function randomNum(minNum, maxNum) {
+  switch (arguments.length) {
+    case 1:
+      return parseInt(Math.random() * minNum + 1, 10);
+      break;
+    case 2:
+      return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+      break;
+    default:
+      return 0;
+      break;
+  }
+} 
+
 Page({
+  
+  data: {
+    getInput: null
+  },
+    getInput: function (e) {//方法1
+    this.data.getInput = e.detail.value;
+  },
+  clickMe: function (e) {
+    //获取input
+    var inputed = this.data.getInput;
+    //解析数量
+    var i = 0;
+    var num = 0;
+    for(i in inputed)
+    {
+      if(inputed[i] == ',')
+        num++;
+    }
+    console.log(num);
+    //取随机数
+    var order = randomNum(1, num);
+    console.log(order);
+    //找第order个','
+    //显示结果
+    var outBuf = inputed.substring(num);
+    console.log("outBuf", outBuf);
+    var outPos = outBuf.indexof(",");
+    console.log("outPos", outPos);
+    var out = inputed.substring(num, outPos);
+    console.log("out", out);
+    wx.showModal({
+      title: '提示',
+      content: out,
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   data: {
     motto: 'Hello World',
     userInfo: {},
