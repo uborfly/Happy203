@@ -36,18 +36,39 @@ Page({
       if(inputed[i] == ',')
         num++;
     }
-    console.log(num);
+    console.log("total num",num);
     //取随机数
     var order = randomNum(1, num);
-    console.log(order);
+    console.log("random",order);
     //找第order个','
-    //显示结果
-    var outBuf = inputed.substring(num);
+    var outBuf;
+    i=0;
+    for (i in inputed) {
+      if (inputed[i] == ',')
+      {
+        order--;
+        if(order == 0)
+        {
+          i--;
+          outBuf = inputed.substring(i);
+          break;
+        }
+      }
+    }
+
     console.log("outBuf", outBuf);
-    var outPos = outBuf.indexof(",");
+    var outPos,cnt= 0;
+    i=0;
+    for (i in outBuf) {
+      if (outBuf[i] == ',') {
+          outPos = i;
+          break;
+      }
+    }
     console.log("outPos", outPos);
-    var out = inputed.substring(num, outPos);
+    var out = outBuf.substring(0, outPos);
     console.log("out", out);
+    //显示结果
     wx.showModal({
       title: '提示',
       content: out,
