@@ -33,34 +33,38 @@ Page({
     var num = 0;
     for(i in inputed)
     {
-      if(inputed[i] == ',')
+      if (inputed[i] == '\/')
         num++;
     }
     console.log("total num",num);
     //取随机数
     var order = randomNum(1, num);
-    console.log("random",order);
-    //找第order个','
+    console.log("order",order);
+    //找第order个'/'
     var outBuf;
     i=0;
+    var j=0;
     for (i in inputed) {
-      if (inputed[i] == ',')
+      if (inputed[i] == '\/' )
       {
         order--;
+        console.log("i,j", i,j);
         if(order == 0)
         {
-          i--;
-          outBuf = inputed.substring(i);
+          console.log("i-j", i-j);
+          outBuf = inputed.substring(i-j);
           break;
-        }
+        } 
+        j = -1;
       }
+      j++;
     }
 
     console.log("outBuf", outBuf);
     var outPos,cnt= 0;
     i=0;
     for (i in outBuf) {
-      if (outBuf[i] == ',') {
+      if (outBuf[i] == '\/') {
           outPos = i;
           break;
       }

@@ -15,10 +15,10 @@
 <button bindtap="clickMe" style='position:fixed;width:100%;bottom:0'>点击</button>
 
 <view class="page-section">
-  <view class="weui-cells__title">输入目的地，逗号(,)隔开</view>
+  <view class="weui-cells__title">输入目的地，斜杠(/)隔开</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
-        <input class="weui-input" focus placeholder="示例a,b,c,d," bindblur="getInput"/>
+        <input class="weui-input" focus placeholder="示例a/b/c/d/" bindblur="getInput"/>
       </view>
     </view>
   </view>
