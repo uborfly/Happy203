@@ -1,24 +1,16 @@
 <!--index.wxml-->
-<!-- <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view> -->
-<view>{{msg}}</view>
+
 <button bindtap="clickMe" style='position:fixed;width:100%;bottom:0'>点击</button>
 
 <view class="page-section">
-  <view class="weui-cells__title">输入目的地，斜杠(/)隔开</view>
+  <view class="weui-cells__title">输入待选项目，斜杠"/"隔开</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
-        <input class="weui-input" focus placeholder="示例a/b/c/d/" bindblur="getInput"/>
+        <input class="weui-input" placeholder="示例a/b/c/d/" bindblur="getInput"/>
       </view>
     </view>
   </view>
+  
+<view class="msg-out">
+  <view> {{ message }} </view>
+</view>
